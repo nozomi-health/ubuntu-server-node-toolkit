@@ -1,5 +1,6 @@
 #!/bin/bash
 DOMAIN=$1
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 if [[ $DOMAIN == "" ]]
 then
@@ -27,8 +28,8 @@ sudo mkdir -p /var/www/$DOMAIN/html
 sudo chown -R $USER:$USER /var/www/$DOMAIN/html
 sudo chmod -R 755 /var/www/$DOMAIN
 
-sudo DOMAIN=$DOMAIN TEMPLATE=index.html node generate-template.js > /var/www/$DOMAIN/html/index.html
-sudo DOMAIN=$DOMAIN TEMPLATE=nginx.conf node generate-template.js > /etc/nginx/sites-available/$DOMAIN
+sudo DOMAIN=$DOMAIN TEMPLATE=index.html node $SCRIPT_DIR/../utils/generate-template.js > /var/www/$DOMAIN/html/index.html
+sudo DOMAIN=$DOMAIN TEMPLATE=nginx.conf node $SCRIPT_DIR/../utils/generate-template.js > /etc/nginx/sites-available/$DOMAIN
 
 sudo ln -s /etc/nginx/sites-available/$DOMAIN /etc/nginx/sites-enabled/
 sudo systemctl restart nginx

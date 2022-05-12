@@ -1,4 +1,4 @@
-# Node Server Toolkit
+# Ubuntu Server Node Toolkit
 
 Toolkit provides following features:
   - [Setup Node environment with NGINX](#setup-node-environment-with-nginx)
@@ -10,11 +10,14 @@ Script installs following programs:
   - NGINX
   - Node.js
   - Yarn
+  - Docker
+  - Docker-compose
+  - RSync
 
 #### Running
 
 ```bash
-  chmod +x ./env.sh && sudo ./env.sh
+  chmod +x ./scripts/setup-env.sh && sudo ./scripts/setup-env.sh
 ```
 
 ## Create new app by domain
@@ -30,5 +33,5 @@ Script do following things:
 2. Run command below and replace `{{your-domain}}` with real domain
 
 ```bash
-  chmod +x ./create-app.sh && sudo ./create-app.sh {{your-domain}}
+  chmod +x ./scripts/create-app.sh && sudo ./scripts/create-app.sh {{your-domain}}
 ```

@@ -5,7 +5,7 @@ const domain = process.env.DOMAIN;
 const template = process.env.TEMPLATE;
 
 try {
-  const templateData = fs.readFileSync(path.resolve(__dirname, `./templates/${template}`), 'utf8');
+  const templateData = fs.readFileSync(path.resolve(__dirname, `../templates/${template}`), 'utf8');
   const result = templateData.replaceAll('{{DOMAIN}}', domain);
 
   console.log(result);
